@@ -50,7 +50,7 @@
             console.log(`Fetching AI health advice for Mood: ${userMood}, Symptom: ${userSymptom || "None"}`);
 
             if (userSymptom) {
-                const apiKey = "AIzaSyBzUVFLtGJ182FrVvORgsgSBnzIc21TsVA"; 
+                const API_KEY = "YOUR_API_KEY";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent?key=${apiKey}`;
 
                 const prompt = `Provide a concise health tip (6-7 lines, max 11-12 lines) for someone feeling "${userMood}" and experiencing "${userSymptom}". Include why it's important, its benefits, and how to follow it. Keep it short and practical.`;
