@@ -1,0 +1,4 @@
+[
+    { "mood": "happy", "response": "Glad you're feeling great! Keep it up!" },
+    { "mood": "sad", "response": "It's okay to feel down sometimes. Try some relaxation techniques." }
+]

@@ -1,0 +1,140 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: #f4f4f4;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Feedback Container */
+.feedback-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Title */
+h1 {
+    color: #6c5ce7;
+    margin-bottom: 10px;
+}
+
+h2, h3 {
+    color: #4834d4;
+    margin-top: 15px;
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Email Link */
+a {
+    color: #6c5ce7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Form Styling */
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* Form Labels */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Input Fields */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #6c5ce7;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Textarea */
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+/* Submit Button */
+button {
+    background: #6c5ce7;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #4834d4;
+}
+
+/* Back Button */
+.back-btn {
+    background: #d63031;
+    margin-top: 10px;
+}
+
+.back-btn:hover {
+    background: #c0392b;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: #2d3436;
+    color: white;
+}
+
+.dark-mode .feedback-container {
+    background: #3c4043;
+}
+
+.dark-mode input, .dark-mode textarea {
+    background: #444;
+    color: white;
+    border-color: #a29bfe;
+}
+
+.dark-mode button {
+    background: #a29bfe;
+}
+
+.dark-mode .back-btn {
+    background: #e74c3c;
+}
+

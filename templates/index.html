@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - AI Health Assistant</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel = "icon" type = "image/png" href = "../images/icon.jpg">
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>Welcome to AI Health Assistant</h1>
+        <p>Your personal AI-powered health companion to assist you in your wellness journey.</p>
+
+        <div class="quote-section">
+            <h2>Health Quote of the Day</h2>
+            <p id="healthQuote"></p>
+        </div>
+
+        <div class="buttons">
+            <button onclick="location.href='register.html'">Register</button>
+            <button onclick="location.href='login.html'">Login</button>
+        </div>
+    </div>
+
+    <script>
+        // Array of health-related quotes
+        const healthQuotes = [
+            "Take care of your body. It's the only place you have to live. - Jim Rohn",
+            "A healthy outside starts from the inside. - Robert Urich",
+            "Your health is an investment, not an expense.",
+            "Happiness begins with good health.",
+            "A fit body, a calm mind, and a house full of love – these things cannot be bought, they must be earned."
+        ];
+
+        // Display a random quote on page load
+        document.getElementById("healthQuote").textContent = 
+            healthQuotes[Math.floor(Math.random() * healthQuotes.length)];
+    </script>
+</body>
+</html>

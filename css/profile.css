@@ -1,0 +1,104 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(to right, #56ccf2, #2f80ed);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Profile Container */
+.profile-container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Title Styling */
+h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* Profile Display */
+#profile-display p {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+/* Profile Form */
+#profile-form {
+    display: none;
+    margin-top: 20px;
+}
+
+#profile-form label {
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Buttons */
+button {
+    background: white;
+    color: #2f80ed;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #a0d8f1;
+}
+
+/* Back Button */
+.back-btn {
+    display: block;
+    margin-top: 15px;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

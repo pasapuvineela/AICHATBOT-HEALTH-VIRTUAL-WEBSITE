@@ -1,0 +1,91 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Full Page Styling */
+body {
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Centered Register Form */
+.register-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Heading */
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Form Inputs */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Input Focus Effect */
+input:focus, select:focus {
+    border-color: #6c5ce7;
+    box-shadow: 0px 0px 5px rgba(108, 92, 231, 0.5);
+}
+
+/* Select Styling */
+select {
+    background: white;
+    cursor: pointer;
+}
+
+/* Register Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #6c5ce7;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background: #4834d4;
+}
+
+/* Link Styling */
+p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+p a {
+    color: #6c5ce7;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+p a:hover {
+    text-decoration: underline;
+}

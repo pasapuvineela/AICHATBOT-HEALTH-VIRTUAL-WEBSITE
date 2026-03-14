@@ -1,0 +1,121 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: #f4f4f4;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* About Page Container */
+.about-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    text-align: center;
+}
+
+/* Headings */
+h1 {
+    color: #6c5ce7;
+    margin-bottom: 15px;
+}
+
+h2 {
+    color: #4834d4;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Paragraphs */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* List Styling */
+ul {
+    text-align: left;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+ul li {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Highlighted Text */
+strong {
+    color: #6c5ce7;
+}
+
+/* Back Button */
+.back-btn {
+    background: #6c5ce7;
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+.back-btn:hover {
+    background: #4834d4;
+}
+
+/* Links */
+a {
+    color: #6c5ce7;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background: #2d3436;
+    color: white;
+}
+
+.dark-mode .about-container {
+    background: #3c4043;
+    color: white;
+}
+
+.dark-mode h1, 
+.dark-mode h2, 
+.dark-mode strong {
+    color: #a29bfe;
+}
+
+.dark-mode a {
+    color: #a29bfe;
+}
+
+.dark-mode .back-btn {
+    background: #a29bfe;
+}
+
+.dark-mode .back-btn:hover {
+    background: #6c5ce7;
+}

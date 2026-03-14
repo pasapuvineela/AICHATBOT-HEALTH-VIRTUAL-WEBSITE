@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - AI Health Assistant</title>
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel = "icon" type = "image/png" href = "../images/icon.jpg">
+</head>
+<body>
+    <div class="profile-container">
+        <h1>User Profile</h1>
+
+        <div id="profile-display">
+            <p><strong>Name:</strong> <span id="display-name"></span></p>
+            <p><strong>Age:</strong> <span id="display-age"></span></p>
+            <p><strong>Gender:</strong> <span id="display-gender"></span></p>
+            <p><strong>Email:</strong> <span id="display-email"></span></p>
+            <p><strong>Phone:</strong> <span id="display-phone"></span></p>
+            <p><strong>Alternative Phone:</strong> <span id="display-alt-phone"></span></p>
+            <p><strong>Address:</strong> <span id="display-address"></span></p>
+            <button id="editProfileBtn">Edit Profile</button>
+        </div>
+
+        <div id="profile-form" style="display: none;">
+            <label>Name: <input type="text" id="name"></label>
+            <label>Age: <input type="number" id="age"></label>
+            <label>Gender: 
+                <select id="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </label>
+            <label>Email: <input type="email" id="email"></label>
+            <label>Phone: <input type="tel" id="phone"></label>
+            <label>Alternative Phone: <input type="tel" id="altPhone"></label>
+            <label>Address: <textarea id="address"></textarea></label>
+            <button id="saveProfileBtn">Save</button>
+            <button id="cancelEditBtn">Cancel</button>
+        </div>
+
+        <button onclick="location.href='dashboard.html'" class="back-btn">Back to Dashboard</button>
+    </div>
+
+    <script src="../js/profile.js"></script>
+</body>
+</html>

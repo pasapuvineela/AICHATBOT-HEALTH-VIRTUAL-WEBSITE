@@ -1,0 +1,116 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: #f4f4f4;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Health Tips Container */
+.healthtips-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Title Styling */
+h1 {
+    color: #6c5ce7;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #4834d4;
+    margin-top: 15px;
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Back Button */
+#backButton {
+    background: #d63031;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+#backButton:hover {
+    background: #c0392b;
+}
+
+/* Animation for Tip Display */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: #2d3436;
+    color: white;
+}
+
+.dark-mode .healthtips-container {
+    background: #3c4043;
+}
+
+.dark-mode h1, .dark-mode h2 {
+    color: #a29bfe;
+}
+
+.dark-mode p {
+    color: #dfe6e9;
+}
+
+.dark-mode #backButton {
+    background: #e74c3c;
+}
+
+/* Copyright Footer */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+}
+
+footer a {
+    color: #6c5ce7;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

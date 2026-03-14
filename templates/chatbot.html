@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot - AI Health Assistant</title>
+    <link rel="stylesheet" href="../css/chatbot.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel = "icon" type = "image/png" href = "../images/icon.jpg">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="max-w-xl w-full p-6 bg-white rounded-2xl shadow-xl">
+        <h1 class="text-2xl font-semibold text-purple-600 mb-4 text-center">AI Health Assistant Chatbot</h1>
+        <div id="chatBox" class="chatbox bg-white border rounded-xl p-4 h-80 overflow-y-auto mb-4">
+            <div class="bot-message bg-gray-200 p-2 rounded-lg mb-2">Hello! How can I assist you today?</div>
+        </div>
+        <div class="flex space-x-2 mb-4">
+            <input type="text" id="userInput" class="flex-grow p-2 border rounded-lg" placeholder="Type a message...">
+            <button id="sendButton" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">Send</button>
+            <button id="voiceButton" class="bg-orange-500 hover:bg-orange-700 text-white px-4 py-2 rounded-lg">🎤</button>
+        </div>
+        <button id="locationButton" onclick="redirectToHospitals()" class="w-full bg-green-500 hover:bg-green-700 text-white py-2 mb-2 rounded-lg">🏥 Find Nearby Hospitals</button>
+        <button id="backButton" onclick="goBack()" class="w-full bg-red-500 hover:bg-red-700 text-white py-2 rounded-lg">⬅ Back</button>
+        <p class="text-center text-gray-500 mt-4">&copy; 2025 Algoverse. All Rights Reserved.</p>
+    </div>
+    <script src="../js/chatbot.js"></script>
+    <script>
+        function goBack() {
+            window.location.href = "dashboard.html";
+        }
+
+        function redirectToHospitals() {
+            const savedSymptom = localStorage.getItem("userSymptom");
+            let specialization = "general";
+            const specializationMapping = {
+                "chest pain": "cardiology",
+                "dizziness": "neurology",
+                "shortness of breath": "cardiology",
+                "fever": "pediatrics",
+                "cough": "pediatrics",
+                "sore throat": "pediatrics",
+                "muscle pain": "orthopedic",
+                "headache": "neurology",
+                "skin rash": "dermatology",
+                "nausea": "general",
+                "vomiting": "general",
+                "diarrhea": "general",
+                "toothache": "dentist",
+                "loss of taste": "neurology",
+                "loss of smell": "neurology"
+            };
+
+            if (savedSymptom && specializationMapping[savedSymptom]) {
+                specialization = specializationMapping[savedSymptom];
+            }
+
+            window.location.href = `location.html?specialization=${specialization}`;
+        }
+    </script>
+</body>
+</html>

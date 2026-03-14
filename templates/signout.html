@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signout - AI Health Assistant</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel = "icon" type = "image/png" href = "../images/icon.jpg">
+    <script defer src="../js/signout.js"></script> <!-- Link to JavaScript -->
+</head>
+<body>
+    <div class="signout-container">
+        <h1>Sign Out</h1>
+        <p>Are you sure you want to sign out?</p>
+        
+        <div class="captcha-section">
+            <p>Enter the CAPTCHA below to confirm:</p>
+            <span id="captchaCode"></span> <!-- CAPTCHA Code -->
+            <input type="text" id="captchaInput" placeholder="Enter CAPTCHA" required>
+            <p id="captchaError" class="error-message"></p> <!-- Error Message -->
+        </div>
+
+        <div class="signout-buttons">
+            <button onclick="validateSignout()">Confirm Signout</button>
+            <button onclick="location.href='dashboard.html'">Cancel</button>
+        </div>
+    </div>
+</body>
+</html>

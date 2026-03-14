@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - AI Health Assistant</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel = "icon" type = "image/png" href = "../images/icon.jpg">
+</head>
+<body>
+    <div class="logout-container">
+        <h1>Logout</h1>
+        <p>Are you sure you want to log out?</p>
+        
+        <div class="logout-buttons">
+            <button onclick="confirmLogout()">Yes, Logout</button>
+            <button onclick="cancelLogout()">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        function confirmLogout() {
+            // Clear any session data (if stored in local storage)
+            localStorage.clear();
+            sessionStorage.clear();
+
+            // Redirect to the login page
+            window.location.href = "index.html";
+        }
+
+        function cancelLogout() {
+            // Redirect back to the dashboard
+            window.location.href = "dashboard.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Tips - AI Health Assistant</title>
+    <link rel="stylesheet" href="../css/healthtips.css">
+    <link rel = "icon" type = "image/png" href = "../images/icon.jpg">
+</head>
+<body>
+    <div class="healthtips-container">
+        <h1>Daily Health Tip</h1>
+        <div id="healthTipSection">
+            <h2 id="tipTitle">Loading...</h2>
+            <p id="tipDescription">Please wait while we fetch a health tip for you.</p>
+            <h3>Why is it Important?</h3>
+            <p id="tipImportance">Loading...</p>
+            <h3>Benefits</h3>
+            <p id="tipBenefits">Loading...</p>
+            <h3>How to Follow This Tip?</h3>
+            <p id="tipHowTo">Loading...</p>
+        </div>
+
+        <!-- Back Button -->
+        <button id="backButton" onclick="goBack()">⬅ Back</button>
+    </div>
+
+    <script>
+        const healthTips = [
+            {
+                title: "Stay Hydrated",
+                description: "Drinking enough water each day is crucial for maintaining good health and supporting essential bodily functions.",
+                importance: "Water is essential for digestion, circulation, and maintaining body temperature. Dehydration can lead to fatigue, headaches, and poor concentration.",
+                benefits: "Proper hydration improves skin health, prevents kidney stones, boosts metabolism, and keeps joints lubricated, reducing the risk of injuries.",
+                howTo: "Drink at least 8 glasses (2 liters) of water per day. Increase intake if you're active or live in a hot climate. Carry a water bottle to stay hydrated throughout the day."
+            },
+            {
+                title: "Get Enough Sleep",
+                description: "Quality sleep is essential for overall health and well-being. It helps in restoring energy, repairing tissues, and improving brain function.",
+                importance: "Lack of sleep can lead to impaired memory, weakened immunity, weight gain, and increased risk of heart diseases.",
+                benefits: "Getting 7-9 hours of sleep improves focus, boosts mood, strengthens the immune system, and helps maintain a healthy weight.",
+                howTo: "Establish a bedtime routine, avoid screens before bed, keep your bedroom cool and dark, and maintain a consistent sleep schedule."
+            }
+        ];
+
+        async function getHealthAdvice() {
+            const userMood = localStorage.getItem("userMood") || "Neutral";
+            const userSymptom = localStorage.getItem("userSymptom");
+
+            console.log(`Fetching AI health advice for Mood: ${userMood}, Symptom: ${userSymptom || "None"}`);
+
+            if (userSymptom) {
+                const apiKey = "AIzaSyBzUVFLtGJ182FrVvORgsgSBnzIc21TsVA"; 
+                const apiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent?key=${apiKey}`;
+
+                const prompt = `Provide a concise health tip (6-7 lines, max 11-12 lines) for someone feeling "${userMood}" and experiencing "${userSymptom}". Include why it's important, its benefits, and how to follow it. Keep it short and practical.`;
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: prompt }] }]
+                        })
+                    });
+
+                    const data = await response.json();
+                    let suggestion = data.candidates?.[0]?.content?.parts?.[0]?.text || "Stay healthy and take care!";
+                    
+                    // Ensure response is limited to 6-12 lines
+                    const lines = suggestion.split("\n").filter(line => line.trim() !== "");
+                    if (lines.length > 12) {
+                        suggestion = lines.slice(0, 12).join("\n") + " [...]";
+                    }
+
+                    document.getElementById("tipDescription").innerText = suggestion;
+                    document.getElementById("tipImportance").innerText = "AI-generated advice based on your symptoms.";
+                    document.getElementById("tipBenefits").innerText = "Following this advice can help improve your health condition.";
+                    document.getElementById("tipHowTo").innerText = "Implement these suggestions into your daily routine.";
+                    return;
+                } catch (error) {
+                    console.error("Failed to fetch AI health tip:", error);
+                    document.getElementById("tipDescription").innerText = "AI Health Tip not available. Try again later.";
+                }
+            }
+
+            // If no symptom, show a random health tip
+            displayRandomTip();
+        }
+
+        function displayRandomTip() {
+            const randomIndex = Math.floor(Math.random() * healthTips.length);
+            const selectedTip = healthTips[randomIndex];
+
+            document.getElementById("tipTitle").innerText = selectedTip.title;
+            document.getElementById("tipDescription").innerText = selectedTip.description;
+            document.getElementById("tipImportance").innerText = selectedTip.importance;
+            document.getElementById("tipBenefits").innerText = selectedTip.benefits;
+            document.getElementById("tipHowTo").innerText = selectedTip.howTo;
+        }
+
+        function goBack() {
+            window.location.href = "dashboard.html";
+        }
+
+        document.addEventListener("DOMContentLoaded", getHealthAdvice);
+    </script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+.chatbot-container {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.chatbox {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #f9f9f9;
+}
+
+.message {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+.user {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+}
+
+.bot {
+    background-color: #ddd;
+    color: black;
+    align-self: flex-start;
+}
+
+.chat-input {
+    margin-top: 10px;
+}
+
+.chat-input input {
+    width: 70%;
+    padding: 10px;
+}
+
+.chat-input button {
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Navbar Styling */
+.navbar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#menuButton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#menuButton:hover {
+    background-color: #0056b3;
+}
+
+/* Dropdown Styling */
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    background-color: rgb(250, 246, 246);
+    border: 1px solid blue;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.menu-dropdown button {
+    color: aqua;
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.menu-dropdown button:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show menu when active */
+.show {
+    display: block;
+}
+
+.profile-container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.profile-container h1 {
+    margin-bottom: 20px;
+}
+
+.profile-container p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.profile-container input,
+.profile-container select,
+.profile-container textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.profile-container button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-container button:hover {
+    background-color: #0056b3;
+}
+
+.back-btn {
+    display: block;
+    margin-top: 20px;
+    background-color: #28a745;
+}
+
+.back-btn:hover {
+    background-color: #218838;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.about-container h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.about-container h2 {
+    color: #333;
+    margin-top: 20px;
+}
+
+.about-container p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.about-container ul {
+    text-align: left;
+    padding: 0;
+    list-style: none;
+}
+
+.about-container ul li {
+    padding: 10px;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+.about-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.about-container a:hover {
+    text-decoration: underline;
+}
+
+.back-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background-color: #218838;
+}
+
+.feedback-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.feedback-container h1, .feedback-container h2 {
+    color: #007bff;
+}
+
+.feedback-container p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.feedback-container a {
+    color: #d9534f;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.feedback-container a:hover {
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+form label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.back-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
+
+.logout-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.logout-container h1 {
+    color: #d9534f;
+}
+
+.logout-container p {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.logout-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:first-child {
+    background-color: #d9534f;
+    color: white;
+}
+
+button:first-child:hover {
+    background-color: #c9302c;
+}
+
+button:last-child {
+    background-color: #007bff;
+    color: white;
+}
+
+button:last-child:hover {
+    background-color: #0056b3;
+}
+
+/* Default Light Mode */
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Ensure buttons, inputs, and UI elements adjust in Dark Mode */
+.dark-mode button {
+    background-color: #333;
+    color: white;
+    border: 1px solid white;
+}
+
+.dark-mode input {
+    background-color: #222;
+    color: white;
+    border: 1px solid white;
+}

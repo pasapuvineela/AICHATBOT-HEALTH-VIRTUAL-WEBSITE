@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker - AI Health Assistant</title>
+    <link rel="stylesheet" href="../css/moodtracker.css">
+    <link rel = "icon" type = "image/png" href = "../images/icon.jpg">
+</head>
+<body>
+    <div class="moodtracker-container">
+        <h1>Mood Tracker</h1>
+        <p>How are you feeling today?</p>
+
+        <!-- Mood Selection Buttons -->
+        <div class="mood-options">
+            <button class="mood-btn" data-mood="Happy">😊 Happy</button>
+            <button class="mood-btn" data-mood="Sad">😢 Sad</button>
+            <button class="mood-btn" data-mood="Stressed">😟 Stressed</button>
+            <button class="mood-btn" data-mood="Excited">🤩 Excited</button>
+            <button class="mood-btn" data-mood="Tired">😴 Tired</button>
+        </div>
+
+        <!-- Custom Mood Input -->
+        <input type="text" id="customMood" placeholder="Enter your mood" class="custom-input">
+        <button id="customMoodBtn" class="submit-btn">Submit</button>
+
+        <!-- Mood Summary -->
+        <h2>Your Mood Summary</h2>
+        <p id="mood-summary">Select a mood to see suggestions.</p>
+
+        <!-- Mood History -->
+        <h2>Your Mood History</h2>
+        <ul id="mood-history"></ul>
+
+        <!-- Back Button -->
+        <div class="button-group">
+            <button id="backButton">⬅ Back</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Algoverse. All rights reserved.
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet & Exercise - AI Health Assistant</title>
+    <link rel="stylesheet" href="../css/dietandexercise.css">
+    <link rel = "icon" type = "image/png" href = "../images/icon.jpg">
+</head>
+<body>
+    <div class="diet-exercise-container">
+        <h1>Personalized Diet & Exercise Suggestions</h1>
+
+        <div id="dietSection">
+            <h2>🥗 Food You Should Eat</h2>
+            <p id="dietPlan">Loading...</p>
+        </div>
+
+        <div id="exerciseSection">
+            <h2>🏃 Recommended Exercises</h2>
+            <p id="exercisePlan">Loading...</p>
+        </div>
+
+        <!-- Back Button -->
+        <button id="backButton" onclick="goBack()">⬅ Back</button>
+    </div>
+
+    <script>
+        async function getDietAndExercise() {
+            const userMood = localStorage.getItem("userMood") || "Neutral";
+            const userSymptom = localStorage.getItem("userSymptom");
+
+            console.log(`Fetching AI diet & exercise advice for Mood: ${userMood}, Symptom: ${userSymptom || "None"}`);
+
+            if (userSymptom) {
+                const apiKey = "YOUR_GEMINI_API_KEY_HERE";  
+                const apiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent?key=${apiKey}`;
+
+                const prompt = `Provide a simple, easy-to-follow diet and exercise recommendation for someone feeling "${userMood}" and experiencing "${userSymptom}". 
+                Keep the diet list concise (5-6 items) and include foods to eat. 
+                Keep the exercise section brief (3-4 exercises) focusing on simple activities.`;
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: prompt }] }]
+                        })
+                    });
+
+                    const data = await response.json();
+                    const suggestion = data.candidates?.[0]?.content?.parts?.[0]?.text || "Stay healthy and eat well!";
+
+                    // Splitting AI response
+                    const sections = suggestion.split("\n\n");
+                    document.getElementById("dietPlan").innerText = sections[0] || "Recommended diet based on your symptoms.";
+                    document.getElementById("exercisePlan").innerText = sections[1] || "Suggested exercises for better health.";
+
+                    return;
+                } catch (error) {
+                    console.error("Failed to fetch AI diet & exercise suggestions:", error);
+                    document.getElementById("dietPlan").innerText = "AI Diet Plan not available.";
+                    document.getElementById("exercisePlan").innerText = "AI Exercise Plan not available.";
+                }
+            }
+
+            // If no symptom, display default healthy food & exercise recommendations
+            displayDefaultDietAndExercise();
+        }
+
+        function displayDefaultDietAndExercise() {
+            document.getElementById("dietPlan").innerHTML = `
+                <ul>
+                    <li>🥦 Leafy greens (Spinach, Kale, Lettuce)</li>
+                    <li>🍎 Fresh fruits (Apples, Bananas, Berries)</li>
+                    <li>🍚 Whole grains (Brown rice, Oats, Quinoa)</li>
+                    <li>🥑 Healthy fats (Avocados, Nuts, Olive oil)</li>
+                    <li>🐟 Lean proteins (Fish, Chicken, Lentils)</li>
+                </ul>
+            `;
+
+            document.getElementById("exercisePlan").innerHTML = `
+                <ul>
+                    <li>🚶‍♂️ Brisk walking (20-30 mins daily)</li>
+                    <li>🧘‍♀️ Yoga for relaxation</li>
+                    <li>🏋️‍♂️ Bodyweight exercises (Squats, Push-ups)</li>
+                    <li>🛌 Stretching before bed for better sleep</li>
+                </ul>
+            `;
+        }
+
+        function goBack() {
+            window.location.href = "dashboard.html";
+        }
+
+        document.addEventListener("DOMContentLoaded", getDietAndExercise);
+    </script>
+</body>
+</html>

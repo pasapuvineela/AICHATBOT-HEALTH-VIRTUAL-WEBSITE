@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Health Assistant</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="icon" type="image/png" href="../images/icon.jpg">
+    <script defer src="../js/script.js"></script>
+
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #007BFF;
+        }
+        .navbar .project-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            margin-left: 10px;
+        }
+        .toggle-container {
+            margin-left: auto;
+        }
+        .toggle-container button {
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .light-mode-button {
+            background-color: #ffffff;
+            color: #121212;
+        }
+        .dark-mode-button {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .toggle-container button:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 14px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <button id="menuButton">☰</button>
+        <div id="menuDropdown" class="menu-dropdown">
+            <button onclick="location.href='profile.html'">Profile</button>
+            <button onclick="location.href='about.html'">About</button>
+            <button onclick="location.href='firstaid.html'">First Aid Guide</button>
+            <button onclick="location.href='feedback.html'">Feedback</button>
+            <button onclick="location.href='logout.html'">Logout</button>
+            <button onclick="location.href='signout.html'">Signout</button>
+        </div>
+        <div class="project-name">AI Health Assistant</div>
+        <div class="toggle-container">
+            <button id="modeToggle" class="dark-mode-button">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <h1>Welcome to Your Health Assistant</h1>
+        <div id="quote-section">
+            <h2>Quote of the Day</h2>
+            <p id="quote"></p>
+            <p id="quote-explanation"></p>
+        </div>
+        <div class="buttons">
+            <button onclick="location.href='chatbot.html'">Chatbot</button>
+            <button onclick="location.href='moodtracker.html'">Mood Tracker</button>
+            <button onclick="location.href='healthtips.html'">Health Tips</button>
+            <button onclick="location.href='location.html'">Find Hospitals</button>
+            <button onclick="location.href='dietandexercise.html'">Diet and Exercise</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Algoverse. All rights reserved.
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuButton = document.getElementById("menuButton");
+            const menuDropdown = document.getElementById("menuDropdown");
+            const modeToggle = document.getElementById("modeToggle");
+            const body = document.body;
+            const quoteText = document.getElementById("quote");
+            const quoteExplanation = document.getElementById("quote-explanation");
+
+            menuButton.addEventListener("click", function () {
+                menuDropdown.classList.toggle("show");
+            });
+
+            window.addEventListener("click", function (event) {
+                if (!event.target.matches("#menuButton")) {
+                    if (menuDropdown.classList.contains("show")) {
+                        menuDropdown.classList.remove("show");
+                    }
+                }
+            });
+
+            // Dark mode toggle
+            if (localStorage.getItem("dark-mode") === "enabled") {
+                body.classList.add("dark-mode");
+                modeToggle.classList.remove("dark-mode-button");
+                modeToggle.classList.add("light-mode-button");
+                modeToggle.innerHTML = "☀️ Light Mode";
+            }
+
+            modeToggle.addEventListener("click", function () {
+                body.classList.toggle("dark-mode");
+                if (body.classList.contains("dark-mode")) {
+                    localStorage.setItem("dark-mode", "enabled");
+                    modeToggle.classList.remove("dark-mode-button");
+                    modeToggle.classList.add("light-mode-button");
+                    modeToggle.innerHTML = "☀️ Light Mode";
+                } else {
+                    localStorage.setItem("dark-mode", "disabled");
+                    modeToggle.classList.remove("light-mode-button");
+                    modeToggle.classList.add("dark-mode-button");
+                    modeToggle.innerHTML = "🌙 Dark Mode";
+                }
+            });
+
+            // Fetch a new health-related quote on every page refresh
+            async function fetchHealthQuote() {
+                try {
+                    const response = await fetch("https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateText?key=AIzaSyBzUVFLtGJ182FrVvORgsgSBnzIc21TsVA", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            messages: [{ role: "user", content: "Generate a short motivational quote about health and well-being with the author's name." }],
+                            max_tokens: 50
+                        })
+                    });
+
+                    const data = await response.json();
+                    console.log("API Response:", data); // Debugging Log
+
+                    // Extract the quote
+                    if (data && data.candidates && data.candidates.length > 0 && data.candidates[0].content) {
+                        let quoteFullText = data.candidates[0].content.trim();
+                        let quoteParts = quoteFullText.split("-");
+
+                        quoteText.textContent = quoteParts[0].trim();
+                        quoteExplanation.textContent = quoteParts.length > 1 ? `- ${quoteParts[1].trim()}` : "- Unknown";
+                    } else {
+                        throw new Error("Invalid API response format");
+                    }
+
+                } catch (error) {
+                    console.error("Error fetching quote:", error);
+                    quoteText.textContent = "Your health is your greatest wealth.";
+                    quoteExplanation.textContent = "- Virgil";
+                }
+            }
+
+            // Fetch a new quote every time the page loads
+            fetchHealthQuote();
+        });
+    </script>
+</body>
+</html>
