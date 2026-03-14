@@ -42,30 +42,3 @@ AI_Virtual_Health_Assistant/
     │── logo image
 │── js
     │── all js files
-
-
-```
-
-## Setup Instructions
-1. **Clone the repository:**
-```bash
-git clone https://github.com/jeslipriya/AI_Virtual_Health_Assistant.git
-```
-
-2. **Navigate to the project directory:**
-```bash
-cd AI_Virtual_Health_Assistant
-```
-
-5. **Open the application in your browser:**
-```
-http://localhost:5000
-```
-
-## How to Use
-- **Sign Up/Sign In:** Create or log into your account.
-- **Explore Features:** Access the AI chatbot, mood tracker, and health tips.
-- **Provide Feedback:** Use the feedback form to share your thoughts.
-
-## Contributing
-Feel free to contribute by creating pull requests. For major changes, please open an issue first.
